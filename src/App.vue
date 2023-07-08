@@ -139,7 +139,7 @@
         </h2>
         <p class="px-4 mb-2">To use PEKORA, follow these steps:</p>
         <ol class="px-4 mb-2 list-inside list-decimal">
-          <li class="mb-2 ms-4">
+          <li class="ms-4">
             Prepare an SRT subtitle file. (If you don't have one, you can generate one using
             <a
               href="https://gist.github.com/rishubil/bc5dcadea00cc313980dbae47b885c4c"
@@ -147,16 +147,14 @@
               >video-to-srt.bat</a
             >)
           </li>
-          <li class="mb-2 ms-4">
-            Click the "Choose File" button and select the SRT subtitle file.
-          </li>
-          <li class="mb-2 ms-4">
+          <li class="ms-4">Click the "Choose File" button and select the SRT subtitle file.</li>
+          <li class="ms-4">
             Customize the options, such as font name, font size, text color, etc., if desired.
           </li>
-          <li class="mb-2 ms-4">
+          <li class="ms-4">
             Click the "Download Converted XML" button to save the converted XML file.
           </li>
-          <li class="mb-2 ms-4">Import the downloaded XML file into Adobe Premiere Pro.</li>
+          <li class="ms-4">Import the downloaded XML file into Adobe Premiere Pro.</li>
         </ol>
         <h2 class="text-xl text-pekora-blue-800 font-bold text-center pt-4 pb-4">
           What languages are supported?
@@ -175,22 +173,23 @@
           during the automated subtitle generation process.
         </p>
         <p class="px-4 mb-2">
-          To tackle this issue, we utilize the
+          To provide a solution that prioritizes user privacy and security, we enable users to
+          utilize the powerful
           <a
             href="https://github.com/openai/whisper"
             class="text-pekora-blue-800 underline underline-offset-2"
             >Whisper</a
           >
-          model, which is an AI-powered technology for automatic subtitle generation. The advantage
-          of Whisper is that it can be run locally on your computer, without the need for data to be
-          sent to a server. This local execution ensures privacy and security by keeping all
-          subtitle generation processes within your own environment.
+          model for automatic subtitle generation. Whisper, an AI-powered technology, can be run
+          directly on your computer without relying on external servers. This means that all
+          subtitle generation processes take place within your own environment, ensuring complete
+          control over your data.
         </p>
         <p class="px-4 mb-2">
           However, there is still a need to convert the generated SRT subtitle files into FCP7 XML
           format, compatible with Adobe Premiere's Text Element. This is where our tool comes in. It
-          automates the process of converting Whisper-generated SRT subtitle files into FCP7 XML
-          files, eliminating the tedious task of manual subtitle input in Adobe Premiere.
+          automates the process of converting your locally generated SRT subtitle files into FCP7
+          XML files, eliminating the tedious task of manual subtitle input in Adobe Premiere.
         </p>
         <p class="px-4 mb-2">
           By combining the benefits of local AI execution and automated conversion, our tool
