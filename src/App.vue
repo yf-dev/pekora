@@ -8,14 +8,14 @@
         <h2 class="text-xl text-pekora-blue-800 font-bold text-center pt-4 pb-4">
           Convert Subtitles to Adobe Premiere Pro XML Format
         </h2>
-        <p class="px-4">
+        <p class="px-4 mb-2">
           This tool converts SRT subtitle files into Adobe Premiere Pro-compatible XML files
           (specifically, FCP7 XML format).
         </p>
-        <p class="px-4">
+        <p class="px-4 mb-2">
           The converted XML file can be imported into Adobe Premiere Pro and used as text elements.
         </p>
-        <p class="px-4">
+        <p class="px-4 mb-2">
           All conversion processes are performed within the browser, so the SRT subtitle files are
           not uploaded to the server.
         </p>
@@ -122,77 +122,84 @@
         <h2 class="text-xl text-pekora-blue-800 font-bold text-center pt-4 pb-4">
           Why is it called PEKORA?
         </h2>
-        <p class="px-4">
+        <p class="px-4 mb-2">
+          We playfully named it "PEKORA" as a nod to
           <a
             href="https://www.youtube.com/@usadapekora"
             class="text-pekora-blue-800 underline underline-offset-2"
             >Usada Pekora</a
-          >
-          is a Japanese virtual YouTuber and we are fans of Usada Pekora and support her activities.
+          >, a Japanese virtual YouTuber who never fails to bring laughter and entertainment.
         </p>
-        <p class="px-4">
-          So when starting a new project, we wanted to incorporate her name and decided to name it
-          "PEKORA," even though it may seem a bit forced.
+        <p class="px-4 mb-2">
+          We couldn't resist injecting a bit of whimsical charm into our project by borrowing her
+          name.
         </p>
         <h2 class="text-xl text-pekora-blue-800 font-bold text-center pt-4 pb-4">
           How do I use it?
         </h2>
-        <ol class="px-4 list-inside list-decimal">
-          <li>
+        <p class="px-4 mb-2">To use PEKORA, follow these steps:</p>
+        <ol class="px-4 mb-2 list-inside list-decimal">
+          <li class="mb-2 ms-4">
             Prepare an SRT subtitle file. (If you don't have one, you can generate one using
             <a
-              href="https://github.com/ggerganov/whisper.cpp"
+              href="https://gist.github.com/rishubil/bc5dcadea00cc313980dbae47b885c4c"
               class="text-pekora-blue-800 underline underline-offset-2"
-              >whisper.cpp</a
+              >video-to-srt.bat</a
             >)
           </li>
-          <li>Click the "Choose File" button and select the SRT subtitle file.</li>
-          <li>
-            If you need, you can change the options like a font name, font size, color of the text,
-            etc.
+          <li class="mb-2 ms-4">
+            Click the "Choose File" button and select the SRT subtitle file.
           </li>
-          <li>Click the "Download Converted XML" button to download the converted XML file.</li>
-          <li>Import the downloaded XML file into Adobe Premiere Pro.</li>
+          <li class="mb-2 ms-4">
+            Customize the options, such as font name, font size, text color, etc., if desired.
+          </li>
+          <li class="mb-2 ms-4">
+            Click the "Download Converted XML" button to save the converted XML file.
+          </li>
+          <li class="mb-2 ms-4">Import the downloaded XML file into Adobe Premiere Pro.</li>
         </ol>
         <h2 class="text-xl text-pekora-blue-800 font-bold text-center pt-4 pb-4">
           What languages are supported?
         </h2>
-        <p class="px-4">
-          This tool is not limited to any specific language. However, the font used in Adobe
-          Premiere Pro may not support all languages.
+        <p class="px-4 mb-2">
+          PEKORA supports subtitles in any language. However, note that the availability of fonts in
+          Adobe Premiere Pro may vary for different languages.
         </p>
         <h2 class="text-xl text-pekora-blue-800 font-bold text-center pt-4 pb-4">
           Why did you make this?
         </h2>
-        <p class="px-4">
-          When editing videos in Adobe Premiere, it is necessary to manually input subtitles for all
-          spoken parts.
+        <p class="px-4 mb-2">
+          We created this tool to address the challenges of manually inputting subtitles in Adobe
+          Premiere. While automatic subtitle generation using AI technology has advanced, many users
+          are hesitant to use existing services due to concerns about potential privacy breaches
+          during the automated subtitle generation process.
         </p>
-        <p class="px-4">However, manually inputting subtitles can be a tedious task.</p>
-        <p class="px-4">
-          With advancements in AI technology, automatic subtitle generation has also improved. But,
-          there are limited services that support various languages, and more importantly, many
-          people are hesitant to use them due to concerns about potential privacy breaches during
-          the automated subtitle generation process.
-        </p>
-        <p class="px-4">
-          By using
+        <p class="px-4 mb-2">
+          To tackle this issue, we utilize the
           <a
-            href="https://github.com/ggerganov/whisper.cpp"
+            href="https://github.com/openai/whisper"
             class="text-pekora-blue-800 underline underline-offset-2"
-            >whisper.cpp</a
-          >, it is possible to generate subtitles that support multiple languages without worries of
-          personal information leakage. However, there is a need to convert these generated SRT
-          subtitle files into FCP7 XML files compatible with Adobe Premiere's Text Element.
+            >Whisper</a
+          >
+          model, which is an AI-powered technology for automatic subtitle generation. The advantage
+          of Whisper is that it can be run locally on your computer, without the need for data to be
+          sent to a server. This local execution ensures privacy and security by keeping all
+          subtitle generation processes within your own environment.
         </p>
-        <p class="px-4">
-          This tool aims to automate the process of converting SRT subtitle files, generated by
-          whisper.cpp or similar tools, into FCP7 XML files that can be used in Adobe Premiere. This
-          automation reduces the need for manually inputting subtitles in Adobe Premiere.
+        <p class="px-4 mb-2">
+          However, there is still a need to convert the generated SRT subtitle files into FCP7 XML
+          format, compatible with Adobe Premiere's Text Element. This is where our tool comes in. It
+          automates the process of converting Whisper-generated SRT subtitle files into FCP7 XML
+          files, eliminating the tedious task of manual subtitle input in Adobe Premiere.
+        </p>
+        <p class="px-4 mb-2">
+          By combining the benefits of local AI execution and automated conversion, our tool
+          provides a seamless and privacy-conscious solution for integrating subtitles into Adobe
+          Premiere projects.
         </p>
         <h2 class="text-xl text-pekora-blue-800 font-bold text-center pt-4 pb-4">Source code?</h2>
-        <p class="px-4">
-          The source code is available at
+        <p class="px-4 mb-2">
+          You can access the source code of PEKORA at
           <a
             href="https://github.com/yf-dev/pekora"
             class="text-pekora-blue-800 underline underline-offset-2"
