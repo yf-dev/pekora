@@ -10,6 +10,6 @@ export const DEFAULT_FONT_FAME = 'Arial'
 export const DEFAULT_FONT_SIZE = 24
 export const DEFAULT_TEXT_COLOR = '#ffffff'
 export const DEFAULT_HORIZONTAL_CENTER = 0
-export const DEFAULT_VERTICAL_CENTER = 0.47
+export const DEFAULT_VERTICAL_CENTER = 0.44
 export const DEFAULT_STROKE_WIDTH = 0
 export const DEFAULT_STROKE_COLOR = '#000000'
