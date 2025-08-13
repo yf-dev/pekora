@@ -39,13 +39,13 @@
             v-model="horizontalCenter"
             name="Horizontal Center"
             input-type="number"
-            step="any"
+            step="0.01"
           ></InputBox>
           <InputBox
             v-model="verticalCenter"
             name="Vertical Center"
             input-type="number"
-            step="any"
+            step="0.01"
           ></InputBox>
           <InputBox
             v-model="strokeWidth"
