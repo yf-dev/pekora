@@ -27,35 +27,54 @@
           <InputBox v-model="srtFiles" name="SRT File" input-type="file"></InputBox>
         </form>
       </div>
+      <!-- Subtitle Options -->
       <div class="rounded bg-white shadow p-4">
         <h3 class="text-lg text-pekora-blue-700 font-bold text-center pt-2 pb-6">
           Subtitle Options
         </h3>
-        <form class="grid grid-cols-auto-fit-w-72 gap-x-6 gap-y-3">
+        <form class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
           <InputBox v-model="fontName" name="Font name" input-type="text"></InputBox>
-          <InputBox v-model="textSize" name="Text Size" input-type="number" step="any"></InputBox>
+          <InputBox
+            v-model="textSize"
+            name="Text Size (px)"
+            input-type="number"
+            step="any"
+          ></InputBox>
           <InputBox v-model="textColor" name="Text Color" input-type="color"></InputBox>
           <InputBox
-            v-model="horizontalCenter"
-            name="Horizontal Center"
+            v-model="horizontalPosition"
+            name="Horizontal Position (%)"
             input-type="number"
-            step="0.01"
+            :step="1"
           ></InputBox>
           <InputBox
-            v-model="verticalCenter"
-            name="Vertical Center"
+            v-model="verticalPosition"
+            name="Vertical Position (%)"
             input-type="number"
-            step="0.01"
+            :step="1"
           ></InputBox>
           <InputBox
             v-model="strokeWidth"
-            name="Stroke Width"
+            name="Stroke Width (px)"
             input-type="number"
             step="any"
           ></InputBox>
           <InputBox v-model="strokeColor" name="Stroke Color" input-type="color"></InputBox>
         </form>
       </div>
+
+      <!-- Subtitle Preview -->
+      <SubtitlePreview
+        :font-name="fontName"
+        :text-size="textSize"
+        :text-color="textColor"
+        :horizontal-position="horizontalPosition"
+        :vertical-position="verticalPosition"
+        :stroke-width="strokeWidth"
+        :stroke-color="strokeColor"
+        :video-width="width"
+        :video-height="height"
+      />
       <div class="rounded bg-white shadow p-4">
         <h3 class="text-lg text-pekora-blue-700 font-bold text-center pt-2 pb-6">Video Options</h3>
         <form class="grid grid-cols-auto-fit-w-72 gap-x-6 gap-y-3">
@@ -212,6 +231,7 @@
 
 <script setup lang="ts">
 import InputBox from './components/InputBox.vue'
+import SubtitlePreview from './components/SubtitlePreview.vue'
 import { ref } from 'vue'
 import { parseSync, type NodeCue, type NodeList as SubtitleNodeList } from 'subtitle'
 import {
@@ -244,8 +264,8 @@ const fieldDominance = ref(DEFAULT_FIELD_DOMINANCE)
 const fontName = ref(DEFAULT_FONT_FAME)
 const textSize = ref(DEFAULT_TEXT_SIZE)
 const textColor = ref(DEFAULT_TEXT_COLOR)
-const horizontalCenter = ref(DEFAULT_HORIZONTAL_CENTER)
-const verticalCenter = ref(DEFAULT_VERTICAL_CENTER)
+const horizontalPosition = ref(DEFAULT_HORIZONTAL_CENTER)
+const verticalPosition = ref(DEFAULT_VERTICAL_CENTER)
 const strokeWidth = ref(DEFAULT_STROKE_WIDTH)
 const strokeColor = ref(DEFAULT_STROKE_COLOR)
 
@@ -500,7 +520,7 @@ function convertCueToGeneratoritemXml(
       name: 'Size',
       valuemin: '0',
       valuemax: '200',
-      value: toNumberString(textSize.value),
+      value: toNumberString((textSize.value * 480) / height.value),
     }),
   )
 
@@ -520,7 +540,7 @@ function convertCueToGeneratoritemXml(
       name: 'Line Width',
       valuemin: '0',
       valuemax: '200',
-      value: toNumberString(strokeWidth.value),
+      value: toNumberString((strokeWidth.value * 480) / height.value),
     }),
   )
 
@@ -529,8 +549,8 @@ function convertCueToGeneratoritemXml(
       parameterid: 'center',
       name: 'Center',
       value: {
-        horiz: toNumberString(horizontalCenter.value),
-        vert: toNumberString(verticalCenter.value),
+        horiz: toNumberString((horizontalPosition.value - 50) / 100),
+        vert: toNumberString((verticalPosition.value - 50) / 100),
       },
     }),
   )
